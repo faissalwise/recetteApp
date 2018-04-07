@@ -7,6 +7,8 @@ import { MatGridListModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material';
+import { MatCheckboxModule } from '@angular/material';
 
 
 
@@ -14,12 +16,14 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
+import { DetailPlatComponent } from './detail-plat/detail-plat.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    DetailPlatComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,10 @@ import { MenuComponent } from './menu/menu.component';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatInputModule
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
