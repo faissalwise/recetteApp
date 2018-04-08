@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material';
-
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 
 import 'hammerjs';
@@ -18,13 +18,23 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DetailPlatComponent } from './detail-plat/detail-plat.component';
 import { PlatService } from './services/plat.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    DetailPlatComponent
+    DetailPlatComponent,
+    HeaderComponent,
+    FooterComponent,
+    AboutComponent,
+    HomeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +47,8 @@ import { PlatService } from './services/plat.service';
     MatInputModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    AppRoutingModule
   ],
   providers: [PlatService],
   bootstrap: [AppComponent]
