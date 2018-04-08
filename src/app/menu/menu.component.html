@@ -12,7 +12,7 @@
 
   <div fxFlex>
     <mat-grid-list cols="2" rowHeight="200px">
-      <mat-grid-tile *ngFor="let plat of plats">
+      <mat-grid-tile *ngFor="let plat of plats" (click) = "onSelect(plat)">
         <img height="200px" src={{plat.image}} alt={{plat.name}}>
         <mat-grid-tile-footer>
           <h1 mat-line>{{plat.name | uppercase}}</h1>
@@ -20,7 +20,9 @@
       </mat-grid-tile>
     </mat-grid-list>
   </div>
+  
+    
+<app-detail-plat [plat] ="selectedPlat"></app-detail-plat>
 
-<app-detail-plat></app-detail-plat>
 
 </div>

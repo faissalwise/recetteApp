@@ -17,6 +17,7 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DetailPlatComponent } from './detail-plat/detail-plat.component';
+import { PlatService } from './services/plat.service';
 
 
 @NgModule({
@@ -36,9 +37,9 @@ import { DetailPlatComponent } from './detail-plat/detail-plat.component';
     MatInputModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatCheckboxModule,
+    MatCheckboxModule
   ],
-  providers: [],
+  providers: [PlatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

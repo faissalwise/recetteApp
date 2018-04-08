@@ -1,3 +1,5 @@
+import { Comment } from './comment';
+
 export class Plat {
     name: string;
     image: string;
@@ -5,4 +7,5 @@ export class Plat {
     label: string;
     price: string;
     description: string;
+    comments: Comment[];
 }
