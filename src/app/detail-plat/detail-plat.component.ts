@@ -1,5 +1,9 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Plat } from '../shared/plat';
+import { ActivatedRoute } from '@angular/router';
+import { PlatService } from '../services/plat.service';
+import { Location } from '@angular/common';
+
 
 
 @Component({
@@ -9,12 +13,19 @@ import { Plat } from '../shared/plat';
 })
 export class DetailPlatComponent implements OnInit {
 
-  @Input()
   plat: Plat;
 
-  constructor() { }
+  constructor(private platService: PlatService,
+    private route: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit() {
+    let id = +this.route.snapshot.params['id'];
+    this.plat = this.platService.getPlat(id);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

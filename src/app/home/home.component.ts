@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { PromotionService } from '../services/promotion.service';
+import { PlatService } from '../services/plat.service';
+import { Plat } from '../shared/plat';
+import { Promotion } from '../shared/promotion';
+
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +13,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  promotion: Promotion;
+  plat:Plat;
+
+  constructor(private platService: PlatService,
+    private promotionservice: PromotionService) { }
 
   ngOnInit() {
+    this.plat = this.platService.getFeaturedPlat();
+   this.promotion = this.promotionservice.getFeaturedPromotion();
+
   }
 
 }
