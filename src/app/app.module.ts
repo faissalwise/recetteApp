@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 import 'hammerjs';
@@ -24,10 +25,15 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { PromotionService } from './services/promotion.service';
+import { LoginComponent } from './login/login.component';
 
 
 
 @NgModule({
+  entryComponents: [
+    LoginComponent
+],
+  
   declarations: [
     AppComponent,
     MenuComponent,
@@ -36,7 +42,8 @@ import { PromotionService } from './services/promotion.service';
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,8 @@ import { PromotionService } from './services/promotion.service';
     BrowserAnimationsModule,
     MatDialogModule,
     MatCheckboxModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [PlatService,PromotionService],
   bootstrap: [AppComponent]
