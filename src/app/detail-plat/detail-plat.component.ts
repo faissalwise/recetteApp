@@ -21,7 +21,7 @@ export class DetailPlatComponent implements OnInit {
 
   ngOnInit() {
     let id = +this.route.snapshot.params['id'];
-    this.plat = this.platService.getPlat(id);
+    this.platService.getPlat(id).subscribe(plat => this.plat = plat);
   }
 
   goBack(): void {

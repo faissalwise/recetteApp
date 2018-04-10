@@ -26,7 +26,7 @@ export class MenuComponent implements OnInit {
   constructor(private platService: PlatService) { }
 
   ngOnInit() {
-    this.plats = this.platService.getPlats();
+    this.platService.getPlats().subscribe(plats => this.plats = plats);
   }
 
 }
