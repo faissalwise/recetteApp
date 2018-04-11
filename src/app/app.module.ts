@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
 
@@ -26,6 +27,10 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { PromotionService } from './services/promotion.service';
 import { LoginComponent } from './login/login.component';
+import { HttpModule } from '@angular/http';
+import { baseURL } from './shared/baseurl';
+import { ProcessHttpmsgService } from './services/process-httpmsg.service';
+
 
 
 
@@ -46,7 +51,7 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     MatGridListModule,
     FlexLayoutModule,
     MatListModule,
@@ -58,9 +63,11 @@ import { LoginComponent } from './login/login.component';
     MatDialogModule,
     MatCheckboxModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    MatProgressSpinnerModule
   ],
-  providers: [PlatService,PromotionService],
+  providers: [PlatService,PromotionService,ProcessHttpmsgService,{provide: 'BaseURL', useValue: baseURL}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
