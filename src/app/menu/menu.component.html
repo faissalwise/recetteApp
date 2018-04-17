@@ -12,7 +12,7 @@
 
   <div fxFlex>
     <mat-grid-list cols="2" rowHeight="200px">
-      <mat-grid-tile *ngFor="let plat of plats" [routerLink]="['/detailPlat', plat.id]">
+      <mat-grid-tile *ngFor="let plat of plats" [routerLink]="['/detailPlat', plat.id]" appHighlight>
         <img height="200px" src="{{BaseURL + plat.image}}" alt={{plat.name}}>
         <mat-grid-tile-footer>
           <h1 mat-line>{{plat.name | uppercase}}</h1>

@@ -19,6 +19,7 @@ export class DetailPlatComponent implements OnInit {
   platIds: number[];
   prev: number;
   next: number;
+  platCopy = null;
 
   constructor(private platService: PlatService,
     private route: ActivatedRoute,
@@ -28,7 +29,7 @@ export class DetailPlatComponent implements OnInit {
     this.platService.getPlatIds().subscribe(platIds => this.platIds = platIds);
     this.route.params
       .switchMap((params: Params) => this.platService.getPlat(+params['id']))
-      .subscribe(plat => { this.plat = plat; this.setPrevNext(plat.id); });
+      .subscribe(plat => { this.plat = plat; this.platCopy = plat; this.setPrevNext(plat.id); });
   }
 
   setPrevNext(platId: number) {
@@ -40,5 +41,7 @@ export class DetailPlatComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+
 
 }

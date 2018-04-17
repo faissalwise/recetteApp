@@ -12,6 +12,8 @@ import { MatCheckboxModule } from '@angular/material';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
 
 
 import 'hammerjs';
@@ -30,6 +32,7 @@ import { LoginComponent } from './login/login.component';
 import { HttpModule } from '@angular/http';
 import { baseURL } from './shared/baseurl';
 import { ProcessHttpmsgService } from './services/process-httpmsg.service';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 
@@ -48,7 +51,8 @@ import { ProcessHttpmsgService } from './services/process-httpmsg.service';
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    HighlightDirective
   ],
   imports: [
   BrowserModule,
@@ -65,7 +69,8 @@ import { ProcessHttpmsgService } from './services/process-httpmsg.service';
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    RestangularModule.forRoot(RestangularConfigFactory)
   ],
   providers: [PlatService,PromotionService,ProcessHttpmsgService,{provide: 'BaseURL', useValue: baseURL}],
   bootstrap: [AppComponent]

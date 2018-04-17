@@ -9,29 +9,25 @@ import { baseURL } from '../shared/baseurl';
 import { ProcessHttpmsgService } from './process-httpmsg.service';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { RestangularModule, Restangular } from 'ngx-restangular';
 
 @Injectable()
 export class PlatService {
 
-  constructor(private http: Http,
+  constructor(private restangular: Restangular,
     private processHttpmsgService: ProcessHttpmsgService) { }
 
   getPlats(): Observable<Plat[]> {
-    return this.http.get(baseURL + 'plats')
-                    .map(res => { return this.processHttpmsgService.extractData(res); })
-                    .catch(error => { return this.processHttpmsgService.handleError(error); });
+    return this.restangular.all('plats').getList();
   }
 
   getPlat(id: number): Observable<Plat> {
-    return  this.http.get(baseURL + 'plats/'+ id)
-                    .map(res => { return this.processHttpmsgService.extractData(res); })
-                    .catch(error => { return this.processHttpmsgService.handleError(error); });
+    return  this.restangular.one('plats',id).get();
   }
 
   getFeaturedPlat(): Observable<Plat> {
-    return this.http.get(baseURL + 'plats?featured=true')
-                    .map(res => { return this.processHttpmsgService.extractData(res)[0]; })
-                    .catch(error => { return this.processHttpmsgService.handleError(error); });
+    return this.restangular.all('plats').getList({featured: true})
+      .map(plats => plats[0]);
   }
 
   getPlatIds(): Observable<number[]> {
